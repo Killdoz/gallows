@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Весельница</title>
+</head>
+<body>
+<h1>Весельница</h1> 
+<script>
+var words = [
+"car",
+"phone",
+"computer",
+"javascript",
+"monkey",
+"amazing",
+"pancake"
+];
+var word = words[Math.floor(Math.random() * words.length)];
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+answerArray[i] = "_";
+var guesses = 20;
+}
+var remainingLetters = word.length;
+while (remainingLetters > 0 && guesses > 0) {
+alert(answerArray.join(" "));
+var guess = prompt("Guess a letter, or click Cansel to stop playing.");
+if( guess === null) {
+breake;
+} else if (guess.length !== 1) {
+alert("please enter a single letter.");
+} else {
+guesses--;
+guess = guess.toLowerCase();
+for (var j = 0; j < word.length; j++) {
+if (word[j] === guess && answerArray[j] === "_") {
+answerArray[j] = guess;
+remainingLetters--;
+} 
+}
+}
+}
+alert(answerArray.join(" "));
+if (guesses > 0) {
+alert("Good job! The answer was " + word);
+} else {
+alert("You're loser! The answer was " + word);
+} 
+</script>
+</body>
+</html>
